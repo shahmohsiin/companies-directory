@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== LIGHT MODE COLORS ===== */
+:root {
+  /* Backgrounds */
+  --bg-primary: #FAF8F3;
+  --bg-secondary: #FFFFFF;
+  --bg-accent: #F5F1E8;
+  
+  /* Text Colors */
+  --text-primary: #1a1a1a;
+  --text-secondary: #000000;
+  --text-muted: #718096;
+  
+  /* Border Colors */
+  --border-color: #e2e8f0;
+  --border-hover: #cbd5e0;
+}
+
+/* ===== DARK MODE COLORS ===== */
+.dark {
+  /* Backgrounds - Proper contrast */
+  --bg-primary: #0f0f0f;
+  --bg-secondary: #1a1a1a;
+  --bg-accent: #262626;
+  
+  /* Text Colors - High contrast for readability */
+  --text-primary: #ffffff;
+  --text-secondary: #e5e5e5;
+  --text-muted: #ffffff;
+  
+  /* Border Colors */
+  --border-color: #404040;
+  --border-hover: #525252;
+}
+
+/* ===== BODY STYLES ===== */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  }
+
+/* ===== GLASSMORPHISM EFFECT ===== */
+.glass {
+  background: rgba(255, 255, 255, 0.751);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(7, 7, 7, 0.215);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass {
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(116, 112, 112, 0.396);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== SELECTION STYLES ===== */
+
+
+/* ===== CUSTOM SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-accent);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+  border-radius: 5px;
+  border: 2px solid var(--bg-accent);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #d97706 0%, #b45309 100%);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #f59e0b var(--bg-accent);
+}
+
+/* ===== INPUT & SELECT STYLES ===== */
+input::placeholder,
+select option {
+  color: var(--text-muted);
+}
+
+.dark input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Dark mode select options */
+.dark select {
+  color-scheme: dark;
+}
+
+.dark select option {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* ===== FOCUS STATES ===== */
+
+/* ===== SMOOTH TRANSITIONS ===== */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Prevent layout shift */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Better text rendering */
+h1, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
